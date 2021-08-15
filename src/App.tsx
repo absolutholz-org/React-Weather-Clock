@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import useGeolocation from 'react-hook-geolocation';
 
 import WeatherFace from './components/WeatherFace';
 import AnalogFace from './components/AnalogFace';
@@ -26,7 +27,7 @@ const ClockFace = styled.div`
   border-radius: 50%;
   margin: auto;
   max-width: 500px;
-  padding: 2%;
+  padding: 1%;
   position: relative;
   width: 100%;
 `;
@@ -43,19 +44,23 @@ function App() {
 
   const [clockForecasts, setClockedForecasts] = useState<IForecast[]>([]);
 
+  const geolocation = useGeolocation();
+
   useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=48.1351&lon=11.5820&exclude=minutely,daily,alerts,flags&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`)
-      .then(response => response.json())
-      .then(response => {
-        console.log({response});
+    if (geolocation.latitude !== null && geolocation.latitude !== null) {
+      fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${ geolocation.latitude }&lon=${ geolocation.longitude }&exclude=minutely,daily,alerts,flags&units=metric&appid=${ process.env.REACT_APP_OPEN_WEATHER_API_KEY }`)
+        .then(response => response.json())
+        .then(response => {
+          console.log({response});
 
-        const { hourly, current } = response;
+          const { hourly, current } = response;
 
-        setForecasts([ current, ...hourly.slice(1, 12) ]);
-        setSunrise(new Date(current.sunrise * 1000));
-        setSunset(new Date(current.sunset * 1000));
-      });
-  }, []);
+          setForecasts([ current, ...hourly.slice(1, 12) ]);
+          setSunrise(new Date(current.sunrise * 1000));
+          setSunset(new Date(current.sunset * 1000));
+        });
+    }
+  }, [geolocation]);
 
   useEffect(() => {
     if (forecasts.length === 12) {
