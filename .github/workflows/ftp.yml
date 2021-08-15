@@ -37,6 +37,11 @@ jobs:
         with:
           node-version: 16
 
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_REACT_APP_OPEN_WEATHER_API_KEY: ${{ secrets.REACT_APP_OPEN_WEATHER_API_KEY }}
+
       - name: Install packages
         run: yarn
         working-directory: ${{ env.working-directory }}
