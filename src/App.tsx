@@ -93,9 +93,9 @@ function App() {
             <WeatherFace forecasts={ clockForecasts } sunrise={ sunrise } sunset={ sunset } />
           }
         </ClockFace>
-      <div style={{fontSize: '100px'}}>
+      {/* <div style={{fontSize: '100px'}}>
         <span>{hours}</span>:<span>{minutes}</span>
-      </div>
+      </div> */}
     </LContainer>
   );
 }

@@ -6,14 +6,27 @@ export const Face = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
+
+    &::after {
+        aspect-ratio: 1 / 1;
+        background: black;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: max(5%, 0.75rem);
+    }
 `;
 
 const Hand = styled.span`
-  border-radius: 3px;
+  border-radius: 9rem;
   display: block;
   position: absolute;
-  bottom: 48%;
-  transform-origin: 50% 94%;
+  bottom: 50%;
+  transform-origin: 50% 100%;
 `;
 
 interface IHourHandProps {
@@ -28,10 +41,10 @@ export const HourHand = styled(Hand)<IHourHandProps>`
     css`
       transform: rotate(${(hours / 12) * 360 + (minutes / 60) * 30}deg);
     `}
-    background: firebrick;
+    background: var(--highlight, hsl(0deg 68% 42%));
     left: 48%;
     padding-bottom: 25%;
-    width: 4%;
+    width: max(4%, 0.5rem);
 `;
 
 interface IMinuteHandProps {
@@ -44,8 +57,8 @@ export const MinuteHand = styled(Hand)<IMinuteHandProps>`
     css`
       transform: rotate(${(minutes / 60) * 360}deg);
     `}
-    background: royalblue;
+    background: currentColor;
     left: 49%;
     padding-bottom: 35%;
-    width: 2%;
+    width: max(2%, 0.25rem);
 `;

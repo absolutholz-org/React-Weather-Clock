@@ -1,9 +1,8 @@
-// import IForecast from './../../App';
-
+import { IForecast } from './../../App';
 import * as S from './WeatherFace.styled';
 
 interface WeatherFaceProps {
-    forecasts: any[];
+    forecasts: IForecast[];
     sunrise: Date;
     sunset: Date;
 }
