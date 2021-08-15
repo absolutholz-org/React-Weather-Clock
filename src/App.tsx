@@ -51,7 +51,7 @@ function App() {
 
         const { hourly, current } = response;
 
-        setForecasts(hourly.slice(0, 12));
+        setForecasts([ current, ...hourly.slice(1, 12) ]);
         setSunrise(new Date(current.sunrise * 1000));
         setSunset(new Date(current.sunset * 1000));
       });
