@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useTime } from 'react-timer-hook';
 
 import WeatherFace from './components/WeatherFace';
+import AnalogFace from './components/AnalogFace';
 
 interface IForecastWeather {
   id: number;
@@ -26,6 +28,7 @@ const ClockFace = styled.div`
   margin: auto;
   max-width: 500px;
   padding: 2%;
+  position: relative;
   width: 100%;
 `;
 
@@ -38,6 +41,10 @@ function App() {
   const [forecasts, setForecasts] = useState<IForecast[]>([]);
   const [sunrise, setSunrise] = useState<Date | null>(null);
   const [sunset, setSunset] = useState<Date | null>(null);
+  const {
+    minutes,
+    hours,
+  } = useTime({ format: '12-hour'});
 
   const [clockForecasts, setClockedForecasts] = useState<IForecast[]>([]);
 
@@ -80,11 +87,15 @@ function App() {
 
   return (
     <LContainer>
-      { clockForecasts.length === 12 && sunrise && sunset &&
         <ClockFace>
-          <WeatherFace forecasts={ clockForecasts } sunrise={ sunrise } sunset={ sunset } />
+          <AnalogFace hours={ hours } minutes={ minutes } />
+          { clockForecasts.length === 12 && sunrise && sunset &&
+            <WeatherFace forecasts={ clockForecasts } sunrise={ sunrise } sunset={ sunset } />
+          }
         </ClockFace>
-      }
+      <div style={{fontSize: '100px'}}>
+        <span>{hours}</span>:<span>{minutes}</span>
+      </div>
     </LContainer>
   );
 }

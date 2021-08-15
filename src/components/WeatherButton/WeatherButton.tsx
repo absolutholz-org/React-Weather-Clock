@@ -11,7 +11,6 @@ interface IWeatherButtonProps {
 
 function WeatherButton ({ className, forecast, sunrise, sunset }: IWeatherButtonProps): JSX.Element {
     const time = new Date(forecast.dt * 1000);
-    console.log({time, sunrise, sunset});
     const isDaytime = time > sunrise && time < sunset;
 
     return (

@@ -1,4 +1,4 @@
-import IForecast from './../../App';
+// import IForecast from './../../App';
 
 import * as S from './WeatherFace.styled';
 
