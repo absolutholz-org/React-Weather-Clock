@@ -50,8 +50,8 @@ function App() {
         const { hourly, current } = response;
 
         setForecasts(hourly.slice(0, 12));
-        setSunrise(new Date(current.sunrise))
-        setSunset(new Date(current.sunset))
+        setSunrise(new Date(current.sunrise * 1000));
+        setSunset(new Date(current.sunset * 1000));
       });
   }, []);
 
@@ -61,7 +61,9 @@ function App() {
 
       forecasts.forEach((forecast => {
         const hour = (new Date(forecast.dt * 1000)).getHours();
-        if (hour > 12) {
+        if (hour === 12 || hour === 24) {
+          sortedForecasts[ 0 ] = forecast;
+        } else if (hour > 12) {
           sortedForecasts[ hour - 12 ] = forecast;
         } else {
           sortedForecasts[ hour ] = forecast;

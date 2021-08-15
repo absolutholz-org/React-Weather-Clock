@@ -20,7 +20,7 @@ interface IWeatherIconProps {
 
 function WeatherIcon ({ iconCode, isDaytime }: IWeatherIconProps): JSX.Element {
     let icon = isDaytime ? <SvgClearDay /> : <SvgClearNight />;
-console.log(iconCode);
+
     if (iconCode > 800 && iconCode < 900) {
         icon = <SvgFewClouds />;
     } else if (iconCode >= 200 && iconCode < 300) {
