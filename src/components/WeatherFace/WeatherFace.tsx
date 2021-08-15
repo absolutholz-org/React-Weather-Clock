@@ -8,6 +8,7 @@ interface WeatherFaceProps {
 }
 
 function WeatherFace ({ forecasts, sunrise, sunset }: WeatherFaceProps): JSX.Element {
+    console.log('render WeatherFace');
     return (
         <S.Face>
             <S.Position1 forecast={ forecasts[1] } sunrise={ sunrise } sunset={ sunset } />

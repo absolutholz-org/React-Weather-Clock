@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useTime } from 'react-timer-hook';
 
 import WeatherFace from './components/WeatherFace';
 import AnalogFace from './components/AnalogFace';
@@ -41,10 +40,6 @@ function App() {
   const [forecasts, setForecasts] = useState<IForecast[]>([]);
   const [sunrise, setSunrise] = useState<Date | null>(null);
   const [sunset, setSunset] = useState<Date | null>(null);
-  const {
-    minutes,
-    hours,
-  } = useTime({ format: '12-hour'});
 
   const [clockForecasts, setClockedForecasts] = useState<IForecast[]>([]);
 
@@ -88,7 +83,7 @@ function App() {
   return (
     <LContainer>
         <ClockFace>
-          <AnalogFace hours={ hours } minutes={ minutes } />
+          <AnalogFace />
           { clockForecasts.length === 12 && sunrise && sunset &&
             <WeatherFace forecasts={ clockForecasts } sunrise={ sunrise } sunset={ sunset } />
           }
