@@ -26,7 +26,7 @@ const ClockFace = styled.div`
   border: 0.25rem solid;
   border-radius: 50%;
   margin: auto;
-  max-width: 500px;
+  max-width: min(calc(100vmin - 2rem), 500px);
   padding: 1%;
   position: relative;
   width: 100%;
