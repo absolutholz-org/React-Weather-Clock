@@ -38,6 +38,14 @@ button {
     padding: 0;
 }
 
+/* THEME */
+:root {
+	--sun: gold;
+	--moon: silver;
+	--star: silver;
+	--cloud: lightskyblue;
+}
+
 /* SHAME */
 body {
 	align-items: center;

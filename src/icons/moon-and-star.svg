@@ -1,0 +1,6 @@
+<svg height="16" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20">
+    <title>Moon and star icon</title>
+    <description>Created by icon 54 from the Noun Project</description>
+    <path fill="var(--moon)" d="M13.291 11.699A5.29 5.29 0 0111.5 12 5.506 5.506 0 016 6.5c0-1.825.901-3.524 2.41-4.546a.5.5 0 00-.209-.909A4.854 4.854 0 007.5 1C3.364 1 0 4.364 0 8.5S3.364 16 7.5 16a7.445 7.445 0 006.386-3.568.5.5 0 00-.595-.733z"/>
+    <path fill="var(--star)" d="M14.5 4.5c-1.103 0-2-.897-2-2a.5.5 0 00-1 0c0 1.103-.897 2-2 2a.5.5 0 000 1c1.103 0 2 .897 2 2a.5.5 0 001 0c0-1.103.897-2 2-2a.5.5 0 000-1z"/>
+</svg>

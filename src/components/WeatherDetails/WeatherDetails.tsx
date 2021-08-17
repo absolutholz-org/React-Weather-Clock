@@ -34,7 +34,7 @@ function WeatherDetails ({ forecast, onClick}: IWeatherDetailsProps): JSX.Elemen
                     </>
                 }
                 <DetailsTerm>Wind</DetailsTerm>
-                <DetailsData>{ forecast.wind_speed } - { forecast.wind_gust }</DetailsData>
+                <DetailsData>{ forecast.wind_speed } - { forecast.wind_gust } <abbr aria-label="Meters per second" title="Meters per second">m/s</abbr></DetailsData>
                 <DetailsTerm><abbr aria-label="Ultraviolet Index" title="Ultraviolet Index">UVI</abbr></DetailsTerm>
                 <DetailsData>{ forecast.uvi }</DetailsData>
             </DetailsList>
