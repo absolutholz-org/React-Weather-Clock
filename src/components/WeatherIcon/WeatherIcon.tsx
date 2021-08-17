@@ -50,7 +50,7 @@ function WeatherIcon ({ iconCode, isDaytime }: IWeatherIconProps): JSX.Element {
             icon = isDaytime ? <SvgPartlyCloudyDay /> : <SvgPartlyCloudyNight />;
             break;
         case 802:
-            icon = isDaytime ? <SvgPartlyCloudyDay /> : <SvgMostlyCloudyNight />;
+            icon = isDaytime ? <SvgMostlyCloudyDay /> : <SvgMostlyCloudyNight />;
             break;
         case 803:
             icon = isDaytime ? <SvgCloudyDay /> : <SvgCloudyNight />;
