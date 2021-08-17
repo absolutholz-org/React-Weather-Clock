@@ -60,6 +60,6 @@ export const MinuteHand = styled(Hand)<IMinuteHandProps>`
     `}
     background: currentColor;
     left: 49%;
-    padding-bottom: 35%;
+    padding-bottom: 32%;
     width: max(2%, 0.25rem);
 `;
