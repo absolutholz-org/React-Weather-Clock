@@ -5,6 +5,6 @@ export const Button = styled.button`
         display: flex;
         font-size: min(12vmin, 4rem);
         height: 1em;
-        width: 1em;
+        width: auto;
     }
 `;
