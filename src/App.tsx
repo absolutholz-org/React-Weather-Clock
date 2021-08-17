@@ -7,12 +7,19 @@ import AnalogFace from './components/AnalogFace';
 
 interface IForecastWeather {
   id: number;
+  description: string;
 }
 
 export interface IForecast {
   dt: number;
   temp: number;
+  feels_like: number;
+  humidity: number;
   weather: IForecastWeather[];
+  pop: number;
+  wind_speed: number;
+  wind_gust: number;
+  uvi: number;
 }
 
 const ClockFace = styled.div`

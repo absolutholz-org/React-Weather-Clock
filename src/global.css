@@ -26,7 +26,19 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* Shame */
+/* RESETS */
+
+button {
+	background: none;
+    border: 0;
+    border-radius: 0;
+    display: inline-block;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* SHAME */
 body {
 	align-items: center;
 	display: flex;
