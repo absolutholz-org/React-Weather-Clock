@@ -1,17 +1,7 @@
 // Open Weather Icon Codes
 // https://openweathermap.org/weather-conditions#How-to-get-icon-URL
 
-// import { ReactComponent as SvgClearDay } from '@mdi/svg/svg/weather-sunny.svg';
-// import { ReactComponent as SvgClearNight } from '@mdi/svg/svg/weather-night.svg';
-
-import { ReactComponent as SvgFewClouds } from '@mdi/svg/svg/weather-cloudy.svg';
-// import { ReactComponent as SvgScatteredClouds } from '@mdi/svg/svg/weather-sunny.svg';
-// import { ReactComponent as SvgBrokenClouds } from '@mdi/svg/svg/weather-sunny.svg';
-// import { ReactComponent as SvgShowerRain } from '@mdi/svg/svg/weather-rainy.svg';
-// import { ReactComponent as SvgRain } from '@mdi/svg/svg/weather-pouring.svg';
-import { ReactComponent as SvgThunderstorm } from '@mdi/svg/svg/weather-lightning-rainy.svg';
-import { ReactComponent as SvgSnow } from '@mdi/svg/svg/weather-snowy.svg';
-import { ReactComponent as SvgFog } from '@mdi/svg/svg/weather-fog.svg';
+import { ReactComponent as SvgFog } from './../../icons/fog.svg';
 
 import { ReactComponent as SvgClouds } from './../../icons/clouds.svg';
 import { ReactComponent as SvgClearDay } from './../../icons/sun.svg';
@@ -30,6 +20,15 @@ import { ReactComponent as SvgLightRainNight } from './../../icons/light-rain-ni
 import { ReactComponent as SvgModerateRainNight } from './../../icons/moderate-rain-night.svg';
 import { ReactComponent as SvgHeavyRainNight } from './../../icons/heavy-rain-night.svg';
 
+import { ReactComponent as SvgThunderstormDay } from './../../icons/thunderstorm-day.svg';
+import { ReactComponent as SvgThunderstormNight } from './../../icons/thunderstorm-night.svg';
+
+import { ReactComponent as SvgSnowDay } from './../../icons/snow-day.svg';
+import { ReactComponent as SvgSnowNight } from './../../icons/snow-night.svg';
+
+import { ReactComponent as SvgSleetDay } from './../../icons/sleet-day.svg';
+import { ReactComponent as SvgSleetNight } from './../../icons/sleet-night.svg';
+
 interface IWeatherIconProps {
     iconCode: number;
     isDaytime: boolean;
@@ -39,15 +38,15 @@ function WeatherIcon ({ iconCode, isDaytime }: IWeatherIconProps): JSX.Element {
     let icon = isDaytime ? <SvgClearDay /> : <SvgClearNight />;
 
     if (iconCode > 800 && iconCode < 900) {
-        icon = <SvgFewClouds />;
+        icon = <SvgClouds />;
     } else if (iconCode >= 200 && iconCode < 300) {
-        icon = <SvgThunderstorm />;
+        icon = isDaytime ? <SvgThunderstormDay /> : <SvgThunderstormNight />;
     } else if (iconCode >= 300 && iconCode < 400) {
         icon = isDaytime ? <SvgHeavyRainDay />:  <SvgHeavyRainNight />;
     } else if (iconCode >= 500 && iconCode < 600) {
         icon = isDaytime ? <SvgHeavyRainDay />:  <SvgHeavyRainNight />;
     } else if (iconCode >= 600 && iconCode < 700) {
-        icon = <SvgSnow />;
+        icon = isDaytime ? <SvgSnowDay /> : <SvgSnowNight />;
     } else if (iconCode >= 700 && iconCode < 800) {
         icon = <SvgFog />;
     }
@@ -70,6 +69,11 @@ function WeatherIcon ({ iconCode, isDaytime }: IWeatherIconProps): JSX.Element {
             break;
         case 501:
             icon = isDaytime ? <SvgModerateRainDay /> :  <SvgModerateRainNight />;
+            break;
+        case 611:
+        case 612:
+        case 613:
+            icon = isDaytime ? <SvgSleetDay /> :  <SvgSleetNight />;
             break;
     }
 

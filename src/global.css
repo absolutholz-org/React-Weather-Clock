@@ -43,10 +43,11 @@ button {
 	--sun-gradient-0: hsl(55deg, 100%, 50%);
 	--sun-gradient-100: hsl(51deg, 100%, 50%);
 	--sun: url(#sun-gradient) hsl(51deg, 100%, 50%);
-	--moon: silver;
-	--star: silver;
-	--cloud: lightskyblue;
-	--rain: #0d9de3;
+	--moon: hsl(0deg, 0%, 75%);
+	--star: hsl(0deg, 0%, 75%);
+	--cloud: hsl(203deg, 92%, 75%);
+	--rain: hsl(200deg, 89%, 47%);
+	--snow: hsl(0deg, 0%, 85%);
 }
 
 /* SHAME */
