@@ -40,10 +40,13 @@ button {
 
 /* THEME */
 :root {
-	--sun: gold;
+	--sun-gradient-0: hsl(55deg, 100%, 50%);
+	--sun-gradient-100: hsl(51deg, 100%, 50%);
+	--sun: url(#sun-gradient) hsl(51deg, 100%, 50%);
 	--moon: silver;
 	--star: silver;
 	--cloud: lightskyblue;
+	--rain: #0d9de3;
 }
 
 /* SHAME */

@@ -7,8 +7,8 @@
 import { ReactComponent as SvgFewClouds } from '@mdi/svg/svg/weather-cloudy.svg';
 // import { ReactComponent as SvgScatteredClouds } from '@mdi/svg/svg/weather-sunny.svg';
 // import { ReactComponent as SvgBrokenClouds } from '@mdi/svg/svg/weather-sunny.svg';
-import { ReactComponent as SvgShowerRain } from '@mdi/svg/svg/weather-rainy.svg';
-import { ReactComponent as SvgRain } from '@mdi/svg/svg/weather-pouring.svg';
+// import { ReactComponent as SvgShowerRain } from '@mdi/svg/svg/weather-rainy.svg';
+// import { ReactComponent as SvgRain } from '@mdi/svg/svg/weather-pouring.svg';
 import { ReactComponent as SvgThunderstorm } from '@mdi/svg/svg/weather-lightning-rainy.svg';
 import { ReactComponent as SvgSnow } from '@mdi/svg/svg/weather-snowy.svg';
 import { ReactComponent as SvgFog } from '@mdi/svg/svg/weather-fog.svg';
@@ -23,6 +23,13 @@ import { ReactComponent as SvgPartlyCloudyNight } from './../../icons/partly-clo
 import { ReactComponent as SvgMostlyCloudyDay } from './../../icons/mostly-cloudy-day.svg';
 import { ReactComponent as SvgMostlyCloudyNight } from './../../icons/mostly-cloudy-night.svg';
 
+import { ReactComponent as SvgLightRainDay } from './../../icons/light-rain-day.svg';
+import { ReactComponent as SvgModerateRainDay } from './../../icons/moderate-rain-day.svg';
+import { ReactComponent as SvgHeavyRainDay } from './../../icons/heavy-rain-day.svg';
+import { ReactComponent as SvgLightRainNight } from './../../icons/light-rain-night.svg';
+import { ReactComponent as SvgModerateRainNight } from './../../icons/moderate-rain-night.svg';
+import { ReactComponent as SvgHeavyRainNight } from './../../icons/heavy-rain-night.svg';
+
 interface IWeatherIconProps {
     iconCode: number;
     isDaytime: boolean;
@@ -36,9 +43,9 @@ function WeatherIcon ({ iconCode, isDaytime }: IWeatherIconProps): JSX.Element {
     } else if (iconCode >= 200 && iconCode < 300) {
         icon = <SvgThunderstorm />;
     } else if (iconCode >= 300 && iconCode < 400) {
-        icon = <SvgShowerRain />;
+        icon = isDaytime ? <SvgHeavyRainDay />:  <SvgHeavyRainNight />;
     } else if (iconCode >= 500 && iconCode < 600) {
-        icon = <SvgRain />;
+        icon = isDaytime ? <SvgHeavyRainDay />:  <SvgHeavyRainNight />;
     } else if (iconCode >= 600 && iconCode < 700) {
         icon = <SvgSnow />;
     } else if (iconCode >= 700 && iconCode < 800) {
@@ -57,6 +64,12 @@ function WeatherIcon ({ iconCode, isDaytime }: IWeatherIconProps): JSX.Element {
             break;
         case 804:
             icon = <SvgClouds />;
+            break;
+        case 500:
+            icon = isDaytime ? <SvgLightRainDay /> :  <SvgLightRainNight />;
+            break;
+        case 501:
+            icon = isDaytime ? <SvgModerateRainDay /> :  <SvgModerateRainNight />;
             break;
     }
 

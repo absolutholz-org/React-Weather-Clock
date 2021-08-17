@@ -42,6 +42,15 @@ function WeatherFace ({ forecasts, sunrise, sunset }: WeatherFaceProps): JSX.Ele
             <S.Position10 forecast={ forecasts[10] } sunrise={ sunrise } sunset={ sunset } onClick={ onButtonClick } />
             <S.Position11 forecast={ forecasts[11] } sunrise={ sunrise } sunset={ sunset } onClick={ onButtonClick } />
             <S.Position12 forecast={ forecasts[0] } sunrise={ sunrise } sunset={ sunset } onClick={ onButtonClick } />
+            {/* https://stackoverflow.com/questions/14051351/svg-gradient-using-css */}
+            <svg viewBox="0 0 100 100">
+                <defs>
+                    <radialGradient id="sun-gradient">
+                        <stop offset="0%" stop-color="var(--sun-gradient-0)" />
+                        <stop offset="100%" stop-color="var(--sun-gradient-100)" />
+                    </radialGradient>
+                </defs>
+            </svg>
         </S.Face>
     );
 }
